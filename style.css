@@ -5,9 +5,10 @@
    =================== */
 :root {
     --colorPrimario: #F2BBC9;
-    --colorOverlay: #F2CED8;
     --colorSecundario: #D95B7D;
     --colorMediador: #8C1636;
+    --colorTexto: #000; /* texto oscuro */
+    --colorFondo: #fff; /* fondo general */
 }
 
 * {
@@ -22,8 +23,8 @@
 body {
     font-family: "Helvetica", "Arial", sans-serif;
     line-height: 1.6;
-    color: rgba(0,0,0,.9);
-    background-color: #000;
+    color: var(--colorTexto);
+    background-color: var(--colorFondo);
 }
 
 .container {
@@ -37,16 +38,17 @@ body {
    =================== */
 header,
 footer {
-    border: 7px solid black;
+    border: 5px solid black;
     background-color: var(--colorPrimario);
     text-align: center;
-    padding: 60px 0 40px;
+    padding: 40px 20px;
 }
 
 main {
-    border-right: 7px solid black;
-    border-left: 7px solid black;
+    border-left: 5px solid black;
+    border-right: 5px solid black;
     background-color: var(--colorSecundario);
+    padding: 20px 0;
 }
 
 /* ===================
@@ -54,22 +56,20 @@ main {
    =================== */
 h1,
 h2 {
-    font-family: "Climate Crisis", sans-serif;
+    font-family: "Climate Crisis", "Helvetica", sans-serif;
     font-weight: 400;
     line-height: 1.1;
-    position: relative;
-    z-index: 1;
 }
 
 h1 {
-    font-size: calc(1.2rem + 3vw);
+    font-size: calc(1.5rem + 2vw);
     margin-bottom: 1rem;
     text-transform: uppercase;
 }
 
 h2 {
-    font-size: calc(0.9rem + 0.9vw);
-    margin-bottom: 30px;
+    font-size: calc(1rem + 1vw);
+    margin-bottom: 20px;
 }
 
 /* ===================
@@ -77,24 +77,114 @@ h2 {
    =================== */
 .nav {
     text-align: center;
-    padding: 2rem 0 1rem 0;
+    padding: 2rem 0 1rem;
 }
 
 .nav a {
-    font-family: "Climate Crisis", sans-serif;
+    font-family: "Climate Crisis", "Helvetica", sans-serif;
     letter-spacing: 2px;
-    font-size: calc(0.6rem + 0.6vw);
+    font-size: calc(0.8rem + 0.5vw);
     background-color: var(--colorMediador);
-    color: rgba(0,0,0,.9);
-    border: 6px solid #000;
-    padding: 25px 50px;
+    color: var(--colorFondo);
+    border: 4px solid #000;
+    padding: 15px 30px;
     text-transform: uppercase;
     cursor: pointer;
-    box-shadow: 12px 12px 0 #000;
+    box-shadow: 6px 6px 0 #000;
     text-decoration: none;
     display: inline-block;
-    width: fit-content;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.3s ease;
+}
+
+.nav a:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 3px 3px 0 #000;
+}
+
+/* ===================
+   Secciones
+   =================== */
+.about-section, .single, .gallery {
+    padding: 20px;
+    background-color: var(--colorSecundario);
+    color: var(--colorFondo);
+}
+
+/* ===================
+   Imágenes
+   =================== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 8px;
+}
+
+/* Galería */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
     position: relative;
-    z-index: 1;
-    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 1s ease;
+    overflow: hidden;
+    border: 3px solid #000;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* ===================
+   Skills
+   =================== */
+.skills-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+/* ===================
+   Footer
+   =================== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--colorPrimario);
+}
+
+.social-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: var(--colorTexto);
+}
+
+/* ===================
+   Responsive
+   =================== */
+@media (max-width: 768px) {
+    .nav a {
+        padding: 10px 15px;
+        font-size: calc(0.7rem + 1vw);
+        box-shadow: 4px 4px 0 #000;
+    }
+
+    header, footer {
+        padding: 30px 10px;
+    }
 }
