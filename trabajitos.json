@@ -4,7 +4,7 @@
     "photo": "https://gilicvnz.github.io/portafolio/img/guantes_barista.webp",
     "title": "Guante de Barista",
     "course": "Ergonomia",
-    "description": "Descripcion pendiente de el trabajo",
+    "description":"Diseño de un guante ergonómico para baristas, con materiales antitranspirantes, zonas antideslizantes para un mejor agarre y detalles en cuero que protegen del calor. Pensado para combinar comodidad, seguridad y eficiencia durante la preparación del café.",
     "gallery": ""
   },
   {
@@ -128,6 +128,7 @@
     "gallery": ""
   }
 ]
+
 
 
 
